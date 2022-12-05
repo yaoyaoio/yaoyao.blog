@@ -1,5 +1,5 @@
 import {defineConfigWithTheme} from "vitepress";
-import {DecThemeConfig} from "../../packages/theme/config";
+import {DecThemeConfig} from "vitepress-theme-december/packages/theme/config";
 
 export default defineConfigWithTheme<DecThemeConfig>({
   title: "YaoYao's Blog",

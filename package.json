@@ -6,13 +6,13 @@
   "author": "YaoYao",
   "license": "MIT",
   "devDependencies": {
+    "@mdit-vue/plugin-frontmatter": "^0.11.1",
+    "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.11.10",
     "fast-glob": "^3.2.12",
     "fs-extra": "^10.0.0",
-    "@types/fs-extra": "^9.0.13",
     "vitepress": "^1.0.0-alpha.28",
-    "vue": "^3.2.45",
-    "@mdit-vue/plugin-frontmatter": "^0.11.1"
+    "vue": "^3.2.45"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
@@ -20,5 +20,6 @@
     "docs:serve": "vitepress serve docs"
   },
   "dependencies": {
+    "vitepress-theme-december": "^0.0.1"
   }
 }

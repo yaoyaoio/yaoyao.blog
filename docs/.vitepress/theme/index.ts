@@ -1,3 +1,1 @@
-import Theme from "../../../packages/theme";
-
-export default Theme;
+export { default } from "../../../packages/theme";
