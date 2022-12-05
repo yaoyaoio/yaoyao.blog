@@ -1,1 +1,1 @@
-export { default } from "../../../packages/theme";
+export { default } from "../../../packages/theme/src";

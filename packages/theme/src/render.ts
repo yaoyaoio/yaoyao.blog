@@ -28,6 +28,7 @@ async function getPages(cmd: string): Promise<string[]> {
 
 
 export async function getPosts(root: string) {
+  console.log("getPosts", root)
   let pages = await getPages(root);
   const render = await createMarkdownRender();
   let posts = await Promise.all(

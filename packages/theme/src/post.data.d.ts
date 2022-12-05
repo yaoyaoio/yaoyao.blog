@@ -1,3 +1,3 @@
-import {PostData} from "./shared/";
+import {PostData} from "./shared";
 
 export declare const data: PostData[]
