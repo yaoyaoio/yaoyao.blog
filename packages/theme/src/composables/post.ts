@@ -1,5 +1,5 @@
 import {inject, InjectionKey} from "vue";
-import {PostData} from "../shared";
+import {PostData} from "../types";
 import {App} from "@vue/runtime-core";
 
 export const postsSymbol: InjectionKey<PostData[]> = Symbol('postsSymbol')

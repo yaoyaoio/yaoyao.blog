@@ -1,4 +1,4 @@
-import {PostData} from "./shared";
+import {PostData} from "./types";
 
 
 export const formateDateString = (date: string): string => {

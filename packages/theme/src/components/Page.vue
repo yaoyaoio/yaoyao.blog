@@ -2,9 +2,7 @@
   <div v-for="(article) in posts" :key="article" class="list">
     <div class="list-header">
       <div class="list-li">
-        <h2>
-          <a :href="withBase(article.regularPath)"> {{ article.frontmatter.title }}</a>
-        </h2>
+        <a :href="withBase(article.regularPath)"> {{ article.frontmatter.title }}</a>
       </div>
       <time class="date">
         {{ article.frontmatter.date }}
@@ -17,7 +15,7 @@
 
 <script lang="ts" setup>
 import {withBase} from 'vitepress'
-import {type PostData} from "../shared";
+import {type PostData} from "../types";
 
 const props = defineProps<{
   posts: PostData[],
@@ -38,7 +36,7 @@ const props = defineProps<{
 }
 
 .list-li {
-  font-size: 1.0625rem;
+  font-size: 1.2rem;
   font-weight: 500;
   margin: 0.1rem 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,

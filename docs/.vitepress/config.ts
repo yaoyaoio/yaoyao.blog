@@ -1,5 +1,5 @@
 import {defineConfigWithTheme} from "vitepress";
-import {DecThemeConfig} from "../../packages/theme/src/config";
+import type {DecThemeConfig} from "../../packages/theme/src/config";
 import {getPosts} from "../../packages/theme/src/render";
 
 
@@ -21,7 +21,7 @@ async function config() {
       socialLinks: [
         {icon: 'github', link: 'https://github.com/yaoyaoio/yaoyao.blog'},
       ],
-      posts: await getPosts('docs'),
+      posts: await getPosts('./'),
       pageSize: 10,
     }
   })

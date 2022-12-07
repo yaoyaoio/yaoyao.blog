@@ -3,7 +3,7 @@ import MarkdownIt from 'markdown-it';
 import {frontmatterPlugin} from '@mdit-vue/plugin-frontmatter';
 import type {MarkdownItEnv} from '@mdit-vue/types';
 import fs from "fs-extra";
-import {type Frontmatter, PostData} from "./shared";
+import {type Frontmatter, PostData} from "./types";
 import {formateDateString} from "./resolve";
 
 export async function createMarkdownRender(): Promise<MarkdownIt> {
