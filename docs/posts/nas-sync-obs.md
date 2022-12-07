@@ -3,6 +3,8 @@ title: 如何使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到
 date: 2022-12-01
 ---
 
+# 如何使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS
+
 ## 群晖 NAS 开启 WebDAV Server
 
 ###  安装 WebDAV Server

@@ -3,6 +3,7 @@ title: "Centos7 解决 OpenSSH 漏洞升级方案"
 date: "2021-08-01"
 description: "记录一下如何制作 OpenSSH 8.6p1 RPM安装包。"
 ---
+# Centos7 解决 OpenSSH 漏洞升级方案
 
 ## 背景
 
