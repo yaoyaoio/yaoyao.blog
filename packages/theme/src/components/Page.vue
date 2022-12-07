@@ -8,7 +8,8 @@
         {{ article.frontmatter.date }}
       </time>
     </div>
-    <p class="describe" v-html="article.frontmatter.description">
+    <p class="describe">
+      {{ article.frontmatter.description}}
     </p>
   </div>
 </template>
