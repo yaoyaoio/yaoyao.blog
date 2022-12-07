@@ -3,10 +3,10 @@ import MarkdownIt from 'markdown-it';
 import {frontmatterPlugin} from '@mdit-vue/plugin-frontmatter';
 import type {MarkdownItEnv} from '@mdit-vue/types';
 import fs from "fs-extra";
-import {type Frontmatter, PostData} from "./types";
-import {formateDateString} from "./resolve";
+import type {Frontmatter, PostData} from "vitepress-theme-december-next";
+import {formateDateString} from "./resolvePage";
 
-export async function createMarkdownRender(): Promise<MarkdownIt> {
+async function createMarkdownRender(): Promise<MarkdownIt> {
   return MarkdownIt({html: true}).use(frontmatterPlugin, {
     // options
     grayMatterOptions: {
@@ -28,7 +28,6 @@ async function getPages(cmd: string): Promise<string[]> {
 
 
 export async function getPosts(root: string) {
-  console.log("getPosts", root)
   let pages = await getPages(root);
   const render = await createMarkdownRender();
   let posts = await Promise.all(
@@ -62,9 +61,11 @@ async function renderPage(render: MarkdownIt, page: string, root: string): Promi
 }
 
 
-function compareDate(a: PostData, b: PostData) {
+const compareDate = (a: PostData, b: PostData) => {
   return a.frontmatter.date < b.frontmatter.date ? 1 : -1;
 }
 
 
-
+export const renderPosts = () => {
+  console.log("renderPosts")
+}

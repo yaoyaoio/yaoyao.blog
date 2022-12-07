@@ -1,6 +1,6 @@
 import {defineConfigWithTheme} from "vitepress";
-import type {DecThemeConfig} from "../../packages/theme/src/config";
-import {getPosts} from "../../packages/theme/src/render";
+import {DecThemeConfig} from "vitepress-theme-december-next";
+import {getPosts} from "./theme/utils";
 
 
 async function config() {

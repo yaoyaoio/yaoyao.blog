@@ -1,1 +1,3 @@
-export {default} from "../../../packages/theme/src";
+import {DecemberTheme} from "vitepress-theme-december-next";
+
+export default DecemberTheme

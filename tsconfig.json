@@ -9,13 +9,7 @@
     "noUnusedLocals": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "lib": [
-      "ESNext",
-      "DOM"
-    ]
+    "lib": ["ESNext", "DOM"]
   },
-  "exclude": [
-    "dist",
-    "./node_modules"
-  ]
+  "exclude": ["**/node_modules/**", "**/dist/**"]
 }
