@@ -1,6 +1,6 @@
 {
   "name": "yaoyao.blog",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "description": "my blog for vitepress",
   "main": "index.js",
