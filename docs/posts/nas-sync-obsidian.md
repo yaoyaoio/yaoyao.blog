@@ -47,7 +47,7 @@ date: 2022-12-01
 
 ![安装|1200](./assets/obs-plugin-remotely-install.png)
 
-### 在 Obsidian 上安装  配置 Remotely Save
+## 在 Obsidian 上配置 Remotely Save
 
 如图所示：
 
