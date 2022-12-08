@@ -1,9 +1,24 @@
 ---
-title: 如何使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS
+title: 使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS
 date: 2022-12-01
 ---
 
 #  使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS
+
+
+::: tip
+**我的环境如下：**
+
+群晖 NAS 产品型号：DS1522+
+
+群晖 NAS DSM 版本：DSM 7.1.1-42962 Update 2
+
+Mac 型号：MacBook Pro 14-inch, 2021
+
+Mac 系统：Ventura
+
+Obsidian： Version 1.0.3 (Installer 1.0.0)
+:::
 
 ## 在群晖 NAS 开启 WebDAV Server
 
@@ -19,7 +34,7 @@ date: 2022-12-01
 
 ###  配置 WebDAV Server
 
-1. 进入菜单 打开 **WebDAV Server** 
+1. 进入菜单 打开 **WebDAV Server**
 
 如图所示：
 
@@ -62,7 +77,6 @@ date: 2022-12-01
 用户名：{你的用户名}
 
 密码：{你的密码}
-
 
 ## 最后
 
