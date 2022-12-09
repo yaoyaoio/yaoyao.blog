@@ -5,9 +5,7 @@ date: 2022-12-01
 
 # 使用 Time Machine 将 Mac 数据备份到群晖 NAS
 
-::: tip
-**我的环境如下：**
-
+::: tip  我的环境如下
 群晖 NAS 产品型号：DS1522+
 
 群晖 NAS DSM 版本：DSM 7.1.1-42962 Update 2
@@ -15,8 +13,6 @@ date: 2022-12-01
 Mac 型号：MacBook Pro 14-inch, 2021
 
 Mac 系统：Ventura
-
-Obsidian： Version 1.0.3 (Installer 1.0.0)
 :::
 
 ##  在群晖 NAS 上进行配置
@@ -59,7 +55,9 @@ Obsidian： Version 1.0.3 (Installer 1.0.0)
 2. 启用 AFP 服务（勾选）
 3. 点击右下角**应用**即可
 
-![[开启 AFP 服务](./assets/nas-afp-start.png)
+如图所示：
+
+![开启 AFP 服务](./assets/nas-afp-start.png)
 
 #### 高级设置
 
