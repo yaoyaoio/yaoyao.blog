@@ -40,23 +40,20 @@ export const getPostsByYear = (posts: PostData[]) => {
   for (const post of posts) {
     if (post.frontmatter.date) {
       const pageDateYear = resolveDate(post.frontmatter.date, "year");
-      // @ts-ignore
       if (formatPages[pageDateYear]) {
-        // @ts-ignore
         formatPages[pageDateYear].push(post);
       } else {
-        // @ts-ignore
         formatPages[pageDateYear] = [post];
       }
     }
-    for (const key in formatPages) {
-      formatPagesArr.unshift({
-        // @ts-ignore
-        year: key,
-        // @ts-ignore
-        data: formatPages[key]
-      });
-    }
+  }
+  for (const key in formatPages) {
+    formatPagesArr.unshift({
+      // @ts-ignore
+      year: key,
+      // @ts-ignore
+      data: formatPages[key]
+    });
   }
   return formatPagesArr;
 }

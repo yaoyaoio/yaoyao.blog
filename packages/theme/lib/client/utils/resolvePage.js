@@ -32,14 +32,14 @@ export const getPostsByYear = (posts) => {
                 formatPages[pageDateYear] = [post];
             }
         }
-        for (const key in formatPages) {
-            formatPagesArr.unshift({
-                // @ts-ignore
-                year: key,
-                // @ts-ignore
-                data: formatPages[key]
-            });
-        }
+    }
+    for (const key in formatPages) {
+        formatPagesArr.unshift({
+            // @ts-ignore
+            year: key,
+            // @ts-ignore
+            data: formatPages[key]
+        });
     }
     return formatPagesArr;
 };
