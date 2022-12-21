@@ -52,7 +52,7 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 |OAUTHLIB_RELAX_TOKEN_SCOPE |1 | 允许 Google OAUTH 工作|
 |https_proxy| http://127.0.0.1:7890|配置了自己的代理方便下载 |
 
-**注： 这些都是可选配置
+**注： 这些都是可选配置**
 
 配置完之后点击 ` 保存 ` 然后再点击 ` 下一步 `
 
