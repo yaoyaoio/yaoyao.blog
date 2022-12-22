@@ -2,11 +2,9 @@
 title: 使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS
 date: 2022-12-01
 ---
+# 使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS
 
-#  使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS
-
-
-::: tip  我的环境如下
+::: tip  我的环境
 
 群晖 NAS 产品型号：DS1522+
 

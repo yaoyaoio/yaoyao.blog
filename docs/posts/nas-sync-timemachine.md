@@ -5,7 +5,7 @@ date: 2022-12-01
 
 # 使用 Time Machine 将 Mac 数据备份到群晖 NAS
 
-::: tip  我的环境如下
+::: tip  我的环境
 群晖 NAS 产品型号：DS1522+
 
 群晖 NAS DSM 版本：DSM 7.1.1-42962 Update 2

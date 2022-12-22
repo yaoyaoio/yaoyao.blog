@@ -1,10 +1,10 @@
 ---
-title: "MySQL 双主基于 GTID 复制方案"
-date: "2021-09-01"
+title: MySQL 双主基于 GTID 复制方案
+date: 2021-09-07
 ---
+# MySQL 双主基于GTID 复制方案
 
-# MySQL 双主基于 GTID 复制方案
-
+## 我的环境
 
 操作系统：CentOS Linux release 7.8.2003 (Core)
 
@@ -53,7 +53,6 @@ chkconfig on mysqld
 ### 初始化数据库
 
 ```bash
-
 // 初始化数据库 此处会生成默认root密码
 /usr/local/mysql/bin/mysqld --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data --initialize
 // 会打印一下日志 记住保存好密码
@@ -70,7 +69,7 @@ chkconfig on mysqld
 
 ## 双主配置
 
-### **节点1配置数据库**
+### **节点 1 配置数据库**
 
 ```bash
 // 打开/etc/my.cnf 将以下内容添加进去
@@ -111,16 +110,16 @@ log-error=/usr/local/mysql/data/error.log
 pid-file=/usr/local/mysql/data/database.pid
 ```
 
-**节点1启动数据库**
+**节点 1 启动数据库**
 
-```go
+```bash
 // 启动数据库
 /etc/init.d/mysqld start
 ```
 
-**节点1初始化密码**
+**节点 1 初始化密码**
 
-```sql
+```bash
 // 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
 // 修改root密码
@@ -129,9 +128,9 @@ mysql>flush privileges;
 mysql>exit;
 ```
 
-**节点1创建从库同步用户**
+**节点 1 创建从库同步用户**
 
-```sql
+```bash
 // 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
 // 创建同步用户
@@ -140,7 +139,7 @@ mysql>flush privileges;
 mysql>exit;
 ```
 
-### **节点2配置数据库**
+### **节点 2 配置数据库**
 
 ```bash
 // 打开/etc/my.cnf 将以下内容添加进去
@@ -181,16 +180,16 @@ log-error=/usr/local/mysql/data/error.log
 pid-file=/usr/local/mysql/data/database.pid
 ```
 
-**节点2启动数据库**
+**节点 2 启动数据库**
 
 ```bash
 // 启动数据库
 /etc/init.d/mysqld start
 ```
 
-**节点2初始化密码**
+**节点 2 初始化密码**
 
-```sql
+```bash
 // 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
 // 修改root密码
@@ -199,9 +198,9 @@ mysql>flush privileges;
 mysql>exit;
 ```
 
-**节点2创建从库同步用户**
+**节点 2 创建从库同步用户**
 
-```sql
+```bash
 // 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
 // 创建同步用户
@@ -212,9 +211,9 @@ mysql>exit;
 
 ## 双主同步配置
 
-**节点2开启同步节点1**
+**节点 2 开启同步节点 1**
 
-```sql
+```bash
 // 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
 // 创建同步
@@ -284,9 +283,9 @@ Master_SSL_Verify_Server_Cert: No
 1 row in set (0.00 sec)
 ```
 
-**节点1开启同步节点2**
+**节点 1 开启同步节点 2**
 
-```go
+```bash
 // 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
 // 创建同步
@@ -357,9 +356,9 @@ e9ff5da2-0b1e-11ec-b665-005056a5c44c:1-2
 1 row in set (0.00 sec)
 ```
 
-**对IP进行授权访问**
+**对 IP 进行授权访问**
 
-```sql
+```bash
 // 在任意一个节点上执行
 // 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
@@ -371,16 +370,16 @@ mysql>exit;
 
 ## 测试数据库
 
-**注：任意一台服务器/2个节点其中一个 需要确保已经授权**
+**注：任意一台服务器/2 个节点其中一个 需要确保已经授权**
 
-```sql
+```bash
 // 登陆数据库 如果登陆成功 代表数据库集群正常运行
 /usr/local/mysql/bin/mysql -uroot -p -h 192.168.200.50 --port=13306
 ```
 
 **完整数据库测试**
 
-```sql
+```bash
 // 测试数据库创建
 create database test1;
 // 测试数据表创建
