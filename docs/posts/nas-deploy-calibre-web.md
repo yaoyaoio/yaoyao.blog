@@ -137,7 +137,7 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 将该 `calibre-web` 容器停止 然后编辑该容器
 
-![编辑|1000](assets/nas-calibre-web-edit-volume.png)
+![编辑|1000](./assets/nas-calibre-web-edit-volume.png)
 
 | 本地文件夹 | 装载路径 |
 | ------ | -------- |
