@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../node_modules/vitepress-theme-december/dist/client/index.js", "../../../../node_modules/vitepress-theme-december/dist/index.js"],
+  "sourcesContent": ["import DefaultTheme from 'vitepress/theme';\nimport Layout from './components/Layout.vue';\nimport Archives from \"./components/Archives.vue\";\nimport Home from \"./components/Home.vue\";\nimport './styles/custom.css';\nconst DecemberTheme = {\n    ...DefaultTheme,\n    Layout,\n    enhanceApp({ app, router, siteData }) {\n        DefaultTheme.enhanceApp({ app, router, siteData });\n        app.component('Archives', Archives);\n        app.component(\"Home\", Home);\n    }\n};\nexport default DecemberTheme;\n", "import DecemberTheme from './client/index.js';\nexport * from \"./client/index.js\";\nexport default DecemberTheme;\n"],
+  "mappings": ";AAAA,OAAO,kBAAkB;AACzB,OAAO,YAAY;AACnB,OAAO,cAAc;AACrB,OAAO,UAAU;AACjB,OAAO;AACP,IAAM,gBAAgB;AAAA,EAClB,GAAG;AAAA,EACH;AAAA,EACA,WAAW,EAAE,KAAK,QAAQ,SAAS,GAAG;AAClC,iBAAa,WAAW,EAAE,KAAK,QAAQ,SAAS,CAAC;AACjD,QAAI,UAAU,YAAY,QAAQ;AAClC,QAAI,UAAU,QAAQ,IAAI;AAAA,EAC9B;AACJ;AACA,IAAO,iBAAQ;;;ACZf,IAAO,eAAQ;",
+  "names": []
+}

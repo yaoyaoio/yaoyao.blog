@@ -1,6 +1,6 @@
 import {defineConfigWithTheme} from "vitepress";
 import {DecThemeConfig} from "vitepress-theme-december";
-import {getPosts} from "./theme/utils";
+import {getPosts} from "./theme/utils/renderPage";
 
 
 async function config() {
@@ -24,11 +24,18 @@ async function config() {
       socialLinks: [
         {icon: 'github', link: 'https://github.com/yaoyaoio/yaoyao.blog'},
       ],
-      posts: await getPosts('./'),
       pageSize: 10,
+      posts: await getPosts("./"),
+    },
+    vite: {
+      ssr: {
+        noExternal: ["vitepress-theme-december"]
+      }
     }
+
   })
 }
 
 
 export default config()
+
