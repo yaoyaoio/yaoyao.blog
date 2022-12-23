@@ -13,8 +13,8 @@
     "@types/node": "^18.11.10",
     "fast-glob": "^3.2.12",
     "fs-extra": "^10.0.0",
-    "vitepress-theme-december": "workspace:*",
     "vitepress": "^1.0.0-alpha.30",
+    "vitepress-theme-december": "workspace:*",
     "vue": "^3.2.45"
   },
   "scripts": {
@@ -23,6 +23,6 @@
     "docs:preview": "vitepress preview docs"
   },
   "workspaces": [
-    "./packages/*"
+    "packages/*"
   ]
 }
