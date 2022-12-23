@@ -1,4 +1,4 @@
-import type {PostData} from "vitepress-theme-december-next";
+import type {PostData} from "vitepress-theme-december";
 
 
 export const formateDateString = (date: string): string => {
