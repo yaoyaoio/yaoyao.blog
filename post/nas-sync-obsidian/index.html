@@ -1,0 +1,236 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS | YaoYao&#39;s blog</title>
+<link rel="shortcut icon" href="https://yaoyao.blog/favicon.ico?v=1676370686816">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://yaoyao.blog/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS | YaoYao&#39;s blog - Atom Feed" href="https://yaoyao.blog/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS
+::: tip  我的环境
+群晖 NAS 产品型号：DS1522+
+群晖 NAS DSM 版本：DSM 7.1.1-42962 ..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://yaoyao.blog">
+  <img class="avatar" src="https://yaoyao.blog/images/avatar.png?v=1676370686816" alt="">
+  </a>
+  <h1 class="site-title">
+    YaoYao&#39;s blog
+  </h1>
+  <p class="site-description">
+    Have a great day.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-12-01
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="使用-remotely-save-和-webdav-server-将-obsidian-数据同步到群晖-nas">使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS</h1>
+<p>::: tip  我的环境</p>
+<p>群晖 NAS 产品型号：DS1522+</p>
+<p>群晖 NAS DSM 版本：DSM 7.1.1-42962 Update 2</p>
+<p>Mac 型号：MacBook Pro 14-inch, 2021</p>
+<p>Mac 系统：Ventura</p>
+<p>Obsidian： Version 1.0.3 (Installer 1.0.0)<br>
+:::</p>
+<h2 id="在群晖-nas-开启-webdav-server">在群晖 NAS 开启 WebDAV Server</h2>
+<h3 id="安装-webdav-server">安装 WebDAV Server</h3>
+<ol>
+<li>使用 <strong>管理员</strong> 帐户登录 DSM</li>
+<li>打开 <strong>套件中心</strong></li>
+<li>搜索 <strong>WebDAV Server</strong> 并安装</li>
+</ol>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="1"><img src="https://i.yaoyao.site/blog/nas-install-webdav.png" alt="安装 WebDAV|968" loading="lazy"></figure>
+<h3 id="配置-webdav-server">配置 WebDAV Server</h3>
+<ol>
+<li>进入菜单 打开 <strong>WebDAV Server</strong></li>
+</ol>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="2"><img src="https://i.yaoyao.site/blog/nas-open-webdav.png" alt="打开 WebDAV|868" loading="lazy"></figure>
+<ol start="2">
+<li>修改配置并应用</li>
+</ol>
+<p><strong>如果什么都不改可以直接点击应用 这个地方我修改了端口</strong></p>
+<figure data-type="image" tabindex="3"><img src="https://i.yaoyao.site/blog/nas-apply-webdav.png" alt="应用 WebDAV|1076" loading="lazy"></figure>
+<h3 id="创建共享目录">创建共享目录</h3>
+<p>控制面板--&gt; 共享文件夹--&gt; 新增--&gt; obsidian</p>
+<p>如图所示：<br>
+<img src="https://i.yaoyao.site/blog/nas-share-create-obs.png" alt="创建共享目录|1067" loading="lazy"></p>
+<h2 id="在-obsidian-上安装-remotely-save">在 Obsidian 上安装 Remotely Save</h2>
+<ol>
+<li>打开 Obsidian</li>
+<li>在社区插件市场里搜索 Remotely Save 并安装</li>
+</ol>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="4"><img src="https://i.yaoyao.site/blog/obs-plugin-remotely-install.png" alt="安装|1200" loading="lazy"></figure>
+<h2 id="在-obsidian-上配置-remotely-save">在 Obsidian 上配置 Remotely Save</h2>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="5"><img src="https://i.yaoyao.site/blog/obs-plugin-remotely-set.png" alt="配置|1200" loading="lazy"></figure>
+<h3 id="配置如下">配置如下：</h3>
+<p>选择远程服务：webdav</p>
+<p>服务器地址：<code>http://{你的地址}:{你的端口}/{你共享的文件夹}</code></p>
+<p>用户名：<code>{你的用户名}</code></p>
+<p>密码：<code>{你的密码}</code></p>
+<h2 id="最后">最后</h2>
+<p>等一段时间在 DSM 中就能看到已经被同步过来的数据。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E4%BD%BF%E7%94%A8-remotely-save-%E5%92%8C-webdav-server-%E5%B0%86-obsidian-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%88%B0%E7%BE%A4%E6%99%96-nas">使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS</a>
+<ul>
+<li><a href="#%E5%9C%A8%E7%BE%A4%E6%99%96-nas-%E5%BC%80%E5%90%AF-webdav-server">在群晖 NAS 开启 WebDAV Server</a>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85-webdav-server">安装 WebDAV Server</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE-webdav-server">配置 WebDAV Server</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95">创建共享目录</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9C%A8-obsidian-%E4%B8%8A%E5%AE%89%E8%A3%85-remotely-save">在 Obsidian 上安装 Remotely Save</a></li>
+<li><a href="#%E5%9C%A8-obsidian-%E4%B8%8A%E9%85%8D%E7%BD%AE-remotely-save">在 Obsidian 上配置 Remotely Save</a>
+<ul>
+<li><a href="#%E9%85%8D%E7%BD%AE%E5%A6%82%E4%B8%8B">配置如下：</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E5%90%8E">最后</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://yaoyao.blog/post/nas-sync-timemachine/">
+              <h3 class="post-title">
+                使用 Time Machine 将 Mac 数据备份到群晖 NAS
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://yaoyao.blog/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

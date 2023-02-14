@@ -1,0 +1,266 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>使用 Time Machine 将 Mac 数据备份到群晖 NAS | YaoYao&#39;s blog</title>
+<link rel="shortcut icon" href="https://yaoyao.blog/favicon.ico?v=1676370686816">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://yaoyao.blog/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="使用 Time Machine 将 Mac 数据备份到群晖 NAS | YaoYao&#39;s blog - Atom Feed" href="https://yaoyao.blog/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="使用 Time Machine 将 Mac 数据备份到群晖 NAS
+::: tip  我的环境
+群晖 NAS 产品型号：DS1522+
+群晖 NAS DSM 版本：DSM 7.1.1-42962 Update 2
+Mac 型号：MacBoo..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://yaoyao.blog">
+  <img class="avatar" src="https://yaoyao.blog/images/avatar.png?v=1676370686816" alt="">
+  </a>
+  <h1 class="site-title">
+    YaoYao&#39;s blog
+  </h1>
+  <p class="site-description">
+    Have a great day.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              使用 Time Machine 将 Mac 数据备份到群晖 NAS
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-12-01
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="使用-time-machine-将-mac-数据备份到群晖-nas">使用 Time Machine 将 Mac 数据备份到群晖 NAS</h1>
+<p>::: tip  我的环境<br>
+群晖 NAS 产品型号：DS1522+</p>
+<p>群晖 NAS DSM 版本：DSM 7.1.1-42962 Update 2</p>
+<p>Mac 型号：MacBook Pro 14-inch, 2021</p>
+<p>Mac 系统：Ventura<br>
+:::</p>
+<h2 id="在群晖-nas-上进行配置">在群晖 NAS 上进行配置</h2>
+<h3 id="创建名称为-time-machine-共享文件夹可以自定义">创建名称为 <strong>Time Machine</strong> 共享文件夹(可以自定义)</h3>
+<ol>
+<li>使用 <strong>管理员</strong> 帐户登录 DSM</li>
+<li>打开 控制面板-&gt; 共享文件夹</li>
+<li>点击新增</li>
+<li>输入名称 例如 <strong>Time Machine</strong> 根据你的具体情况选择所在位置 (注：不要选择启动回收站和加密选项)</li>
+</ol>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="1"><img src="https://i.yaoyao.site/blog/nas-share-create-timemachine.png" alt="创建共享文件夹|1104" loading="lazy"></figure>
+<ol start="5">
+<li>然后选择下一步</li>
+<li>最后一步的时候 需要为你的用户设置可读写权限 然后点击<strong>应用</strong>即可</li>
+</ol>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="2"><img src="https://i.yaoyao.site/blog/nas-share-timemachine-perm.png" alt="配置用户权限" loading="lazy"></figure>
+<h3 id="将共享文件夹设置为-time-machine-的备份目标">将共享文件夹设置为 Time Machine 的备份目标</h3>
+<ol>
+<li>使用 <strong>管理员</strong> 帐户登录 DSM</li>
+<li>打开 控制面板-&gt; 文件服务</li>
+</ol>
+<h4 id="设置-smb-服务">设置 SMB 服务</h4>
+<ol>
+<li>打开 控制面板-&gt; 文件服务-&gt; SMB</li>
+<li>启用 SMB 服务（勾选）</li>
+<li>点击右下角<strong>应用</strong>即可</li>
+</ol>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="3"><img src="https://i.yaoyao.site/blog/nas-smb-start.png" alt="开启 SMB 服务" loading="lazy"></figure>
+<h4 id="设置-afp-服务">设置 AFP 服务</h4>
+<ol>
+<li>打开 控制面板-&gt; 文件服务-&gt; AFP</li>
+<li>启用 AFP 服务（勾选）</li>
+<li>点击右下角<strong>应用</strong>即可</li>
+</ol>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="4"><img src="https://i.yaoyao.site/blog/nas-afp-start.png" alt="开启 AFP 服务" loading="lazy"></figure>
+<h4 id="高级设置">高级设置</h4>
+<ol>
+<li>打开 控制面板-&gt; 文件服务-&gt; 高级设置</li>
+<li>启用 Bonjour 服务发现以查找 Synology NAS</li>
+<li>启用通过 SMB 进行 Bonjour Time Machine 推送 <strong>或</strong> 启用通过 AFP 进行  Bonjour Time Machine 推送</li>
+<li>单击<strong>设置 Time Machine 文件夹</strong>  按钮 选择你刚刚创建好的共享文件夹 然后点击保存&amp;&amp;应用</li>
+</ol>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="5"><img src="https://i.yaoyao.site/blog/nas-bonjour-start.png" alt="配置 Bonjour" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://i.yaoyao.site/blog/nas-timemachine-set.png" alt="设置 TM 文件夹" loading="lazy"></figure>
+<h2 id="在-mac-上进行配置">在 Mac 上进行配置</h2>
+<h3 id="设置-time-machine">设置 Time Machine</h3>
+<ol>
+<li>在 Mac 上 打开 系统设置</li>
+</ol>
+<p>如图所示：<br>
+<img src="https://i.yaoyao.site/blog/mac-system-settings.png" alt="打开系统应用|526" loading="lazy"></p>
+<ol start="2">
+<li>选择通用 -&gt;Time Machine</li>
+</ol>
+<p>如图所示：</p>
+<figure data-type="image" tabindex="7"><img src="https://i.yaoyao.site/blog/mac-timemachine-main.png" alt="打开TM|1000" loading="lazy"></figure>
+<ol start="3">
+<li>选择备份的硬盘</li>
+</ol>
+<p>如图所示：</p>
+<p><img src="https://i.yaoyao.site/blog/mac-timemachine-set.png" alt="" loading="lazy"><br>
+4. 然后根据 Time Machine 规则 即可开始备份</p>
+<h2 id="最后">最后</h2>
+<p>建议使用 SMB 协议进行备份</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E4%BD%BF%E7%94%A8-time-machine-%E5%B0%86-mac-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E5%88%B0%E7%BE%A4%E6%99%96-nas">使用 Time Machine 将 Mac 数据备份到群晖 NAS</a>
+<ul>
+<li><a href="#%E5%9C%A8%E7%BE%A4%E6%99%96-nas-%E4%B8%8A%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE">在群晖 NAS 上进行配置</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%90%8D%E7%A7%B0%E4%B8%BA-time-machine-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%AE%9A%E4%B9%89">创建名称为 <strong>Time Machine</strong> 共享文件夹(可以自定义)</a></li>
+<li><a href="#%E5%B0%86%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AE%BE%E7%BD%AE%E4%B8%BA-time-machine-%E7%9A%84%E5%A4%87%E4%BB%BD%E7%9B%AE%E6%A0%87">将共享文件夹设置为 Time Machine 的备份目标</a>
+<ul>
+<li><a href="#%E8%AE%BE%E7%BD%AE-smb-%E6%9C%8D%E5%8A%A1">设置 SMB 服务</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE-afp-%E6%9C%8D%E5%8A%A1">设置 AFP 服务</a></li>
+<li><a href="#%E9%AB%98%E7%BA%A7%E8%AE%BE%E7%BD%AE">高级设置</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%9C%A8-mac-%E4%B8%8A%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE">在 Mac 上进行配置</a>
+<ul>
+<li><a href="#%E8%AE%BE%E7%BD%AE-time-machine">设置 Time Machine</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E5%90%8E">最后</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://yaoyao.blog/post/kubeadm-install-k8s/">
+              <h3 class="post-title">
+                使用 kubeadm 在 ubuntu20.04 部署 kubernetes 集群
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://yaoyao.blog/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
