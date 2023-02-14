@@ -1,0 +1,25 @@
+{
+  "name": "yaoyao.blog",
+  "version": "0.0.2",
+  "private": true,
+  "description": "my blog for vitepress",
+  "main": "index.js",
+  "repository": "https://github.com/yaoyaoio/yaoyao.blog.git",
+  "author": "yaoyao <i@yaoyao.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@mdit-vue/plugin-frontmatter": "^0.11.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^18.11.10",
+    "fast-glob": "^3.2.12",
+    "fs-extra": "^10.0.0",
+    "vitepress": "^1.0.0-alpha.33",
+    "vitepress-theme-december": "1.0.11-alpha",
+    "vue": "^3.2.45"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  }
+}
